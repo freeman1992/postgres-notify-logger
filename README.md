@@ -9,17 +9,21 @@ Example console application for logging notifications from postgresql database.
 ## Additional details
    * Virtual environment: conda 4.7.12
 
-### Install required packages
-    1. conda create -n notifier python=3.7
-    2. conda activate notifier
-    3. pip install psycopg2
-    4. pip install pgpubsub
-
 ### To run script
-    1. edit settings.ini
-    2. run notifier.py --create
-    3. run notifier.py --insert
-    4. run notifier.py
+    1. git clone https://github.com/freeman1992/postgres-notify-logger.git
+    2. cd postgres-notify-logger
+    3. conda create -n notifier python=3.7 # creates virtual environment 
+    4. conda activate notifier # activates virtual environment
+    5. pip install psycopg2
+    6. pip install pgpubsub
+    7. vim settings.ini # edit configuration file accroding to your database
+    8. python notifier.py --create
+    9. python notifier.py --insert
+    10. python notifier.py # keep the script running, you should see "Listening..." in stdout and YYYY-MM-DD_LOG.log is created
+    11. enter to web or any other postgres database client
+    12. go to your database which you specified in settings.ini
+    13. change the value for `status` column in newly created row
+    14. you should see the output in newly created file YYYY-MM-DD_LOG.log
 
 
 #### Help for optional arguments
